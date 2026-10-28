@@ -1,26 +1,335 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * GEOTECH design system — dark, technological, GIS-inspired.
+ * All color values in oklch. Never hardcode colors in components.
+ */
 
 @theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* As variáveis --font-space-grotesk, --font-plex-sans e --font-plex-mono
+     são criadas pelo next/font no layout.tsx */
+  --font-display:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-grid: var(--grid);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.155 0.004 160);
+  --foreground: oklch(0.985 0.004 160);
+  --surface: oklch(0.2 0.005 160);
+  --surface-2: oklch(0.24 0.006 160);
+
+  --card: oklch(0.203 0.014 160);
+  --card-foreground: oklch(0.985 0.004 160);
+  --popover: oklch(0.203 0.014 160);
+  --popover-foreground: oklch(0.985 0.004 160);
+
+  --primary: oklch(0.82 0.19 152);
+  --primary-foreground: oklch(0.17 0.03 158);
+  --primary-soft: oklch(0.62 0.14 156);
+
+  --secondary: oklch(0.245 0.016 162);
+  --secondary-foreground: oklch(0.95 0.006 160);
+
+  --muted: oklch(0.245 0.016 162);
+  --muted-foreground: oklch(0.72 0.012 160);
+
+  --accent: oklch(0.28 0.04 158);
+  --accent-foreground: oklch(0.88 0.16 152);
+
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.98 0.004 160);
+
+  --border: oklch(1 0 0 / 9%);
+  --border-strong: oklch(1 0 0 / 22%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.82 0.19 152 / 55%);
+  --grid: oklch(1 0 0 / 4.5%);
+
+  --gradient-hero:
+    radial-gradient(
+      ellipse 80% 60% at 70% 10%,
+      color-mix(in oklab, var(--primary) 8%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 10% 90%,
+      color-mix(in oklab, var(--primary-soft) 5%, transparent),
+      transparent 70%
+    );
+  --gradient-line: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--primary) 60%, transparent),
+    transparent
+  );
+  --shadow-elevated: 0 28px 60px -36px oklch(0 0 0 / 55%);
+  --shadow-card:
+    0 1px 0 0 oklch(1 0 0 / 6%) inset, 0 20px 40px -32px oklch(0 0 0 / 80%);
+  --transition-smooth: 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.surface-graphite {
+  --background: oklch(0.205 0.005 160);
+  --surface: oklch(0.245 0.006 160);
+  --surface-2: oklch(0.285 0.007 160);
+  --card: var(--surface);
+}
+
+.surface-paper,
+.surface-mist {
+  --background: oklch(0.975 0.005 85);
+  --foreground: oklch(0.2 0.008 160);
+  --surface: oklch(0.995 0.003 85);
+  --surface-2: oklch(0.945 0.006 85);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.52 0.13 154);
+  --primary-foreground: oklch(0.985 0.004 160);
+  --primary-soft: oklch(0.62 0.1 156);
+  --secondary: oklch(0.94 0.005 85);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.94 0.005 85);
+  --muted-foreground: oklch(0.47 0.008 160);
+  --accent: oklch(0.93 0.03 154);
+  --accent-foreground: oklch(0.38 0.1 154);
+  --border: oklch(0.2 0.01 160 / 11%);
+  --border-strong: oklch(0.2 0.01 160 / 28%);
+  --input: oklch(0.2 0.01 160 / 16%);
+  --grid: oklch(0.2 0.01 160 / 4%);
+  --shadow-card: 0 1px 2px oklch(0.2 0.01 160 / 5%);
+  --shadow-elevated: 0 24px 48px -32px oklch(0.2 0.01 160 / 30%);
+  color-scheme: light;
+}
+
+.surface-mist {
+  --background: oklch(0.935 0.005 90);
+  --surface: oklch(0.975 0.004 85);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* --- GIS-flavored utilities --- */
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility grid-bg-fine {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+@utility mask-fade {
+  mask-image: radial-gradient(
+    ellipse 70% 70% at 50% 40%,
+    black,
+    transparent 75%
+  );
+}
+
+@utility hero-glow {
+  background-image: var(--gradient-hero);
+}
+
+@utility hairline {
+  background-image: var(--gradient-line);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@utility panel {
+  background-color: color-mix(in oklab, var(--surface) 80%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(8px);
+  transition:
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+@utility panel-hover {
+  &:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@utility text-gradient {
+  background: linear-gradient(
+    120deg,
+    var(--foreground) 30%,
+    color-mix(in oklab, var(--foreground) 70%, var(--primary))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes geo-dash {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes geo-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    r: 3;
+  }
+  50% {
+    opacity: 1;
+    r: 5.5;
+  }
+}
+
+@keyframes geo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes geo-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@utility animate-dash {
+  stroke-dasharray: 6 8;
+  animation: geo-dash 12s linear infinite;
+}
+
+@utility animate-node {
+  animation: geo-pulse 3.2s ease-in-out infinite;
+}
+
+@utility animate-float {
+  animation: geo-float 9s ease-in-out infinite;
+}
+
+@utility animate-sweep {
+  animation: geo-sweep 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
