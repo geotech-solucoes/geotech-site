@@ -1,5 +1,12 @@
-"use client"
-import { ArrowRight, Github, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
+"use client";
+import {
+  ArrowRight,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  MessageCircle,
+} from "lucide-react";
 import { useState, type FormEvent } from "react";
 
 import { GeoMap } from "./GeoMap";
@@ -17,7 +24,8 @@ export function FinalCta() {
         </Reveal>
         <Reveal delay={100}>
           <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Vamos transformar dados, lugares e necessidades em soluções inteligentes.
+            Vamos transformar dados, lugares e necessidades em soluções
+            inteligentes.
           </p>
         </Reveal>
         <Reveal delay={180}>
@@ -43,11 +51,36 @@ export function FinalCta() {
 }
 
 const SOCIALS = [
-  { label: "LinkedIn", value: "/company/geotech", icon: Linkedin, href: "#" },
-  { label: "Instagram", value: "@geotech", icon: Instagram, href: "#" },
-  { label: "GitHub", value: "github.com/geotech", icon: Github, href: "#" },
-  { label: "E-mail", value: "contato@geotech.com.br", icon: Mail, href: "#" },
-  { label: "WhatsApp", value: "(00) 00000-0000", icon: MessageCircle, href: "#" },
+  {
+    label: "LinkedIn",
+    value: "/company/geotech-solucoes",
+    icon: Linkedin,
+    href: "#",
+  },
+  {
+    label: "Instagram",
+    value: "@geotech.solucoes",
+    icon: Instagram,
+    href: "#",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/geotech-solucoes",
+    icon: Github,
+    href: "#",
+  },
+  {
+    label: "E-mail",
+    value: "contato.geotechsolucoes@gmail.com",
+    icon: Mail,
+    href: "#",
+  },
+  {
+    label: "WhatsApp",
+    value: "(81) 99412-1515",
+    icon: MessageCircle,
+    href: "#",
+  },
 ];
 
 const FIELD =
@@ -62,7 +95,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contato" className="relative border-t border-border py-28 sm:py-40">
+    <section
+      id="contato"
+      className="relative border-t border-border py-28 sm:py-40"
+    >
       <div className="grid-bg mask-fade pointer-events-none absolute inset-0 opacity-40" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader eyebrow="Contato" title="Vamos construir algo juntos." />
@@ -72,19 +108,39 @@ export function ContactSection() {
             <form onSubmit={onSubmit} className="panel space-y-4 p-7">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="nome" className="mb-2 block text-xs text-muted-foreground">
+                  <label
+                    htmlFor="nome"
+                    className="mb-2 block text-xs text-muted-foreground"
+                  >
                     Nome
                   </label>
-                  <input id="nome" name="nome" required placeholder="Seu nome" className={FIELD} />
+                  <input
+                    id="nome"
+                    name="nome"
+                    required
+                    placeholder="Seu nome"
+                    className={FIELD}
+                  />
                 </div>
                 <div>
-                  <label htmlFor="empresa" className="mb-2 block text-xs text-muted-foreground">
+                  <label
+                    htmlFor="empresa"
+                    className="mb-2 block text-xs text-muted-foreground"
+                  >
                     Empresa / Organização
                   </label>
-                  <input id="empresa" name="empresa" placeholder="Nome da organização" className={FIELD} />
+                  <input
+                    id="empresa"
+                    name="empresa"
+                    placeholder="Nome da organização"
+                    className={FIELD}
+                  />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-xs text-muted-foreground">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-xs text-muted-foreground"
+                  >
                     E-mail
                   </label>
                   <input
@@ -97,15 +153,26 @@ export function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="telefone" className="mb-2 block text-xs text-muted-foreground">
+                  <label
+                    htmlFor="telefone"
+                    className="mb-2 block text-xs text-muted-foreground"
+                  >
                     Telefone
                   </label>
-                  <input id="telefone" name="telefone" placeholder="(00) 00000-0000" className={FIELD} />
+                  <input
+                    id="telefone"
+                    name="telefone"
+                    placeholder="(00) 00000-0000"
+                    className={FIELD}
+                  />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="tipo" className="mb-2 block text-xs text-muted-foreground">
+                <label
+                  htmlFor="tipo"
+                  className="mb-2 block text-xs text-muted-foreground"
+                >
                   Tipo de projeto
                 </label>
                 <select id="tipo" name="tipo" className={FIELD} defaultValue="">
@@ -122,7 +189,10 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="mensagem" className="mb-2 block text-xs text-muted-foreground">
+                <label
+                  htmlFor="mensagem"
+                  className="mb-2 block text-xs text-muted-foreground"
+                >
                   Mensagem
                 </label>
                 <textarea
@@ -143,7 +213,9 @@ export function ContactSection() {
               </button>
 
               <p aria-live="polite" className="text-xs text-primary">
-                {sent ? "Mensagem registrada. Em breve entraremos em contato." : ""}
+                {sent
+                  ? "Mensagem registrada. Em breve entraremos em contato."
+                  : ""}
               </p>
             </form>
           </Reveal>
@@ -158,7 +230,10 @@ export function ContactSection() {
                       href={s.href}
                       className="flex items-center gap-4 rounded-lg border border-border px-4 py-3 transition-colors hover:border-border-strong"
                     >
-                      <s.icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                      <s.icon
+                        className="h-4 w-4 text-primary"
+                        aria-hidden="true"
+                      />
                       <span className="text-sm text-foreground">{s.label}</span>
                       <span className="ml-auto font-mono text-[11px] text-muted-foreground">
                         {s.value}

@@ -24,7 +24,10 @@ const AREAS = [
 
 export function ApplicationsSection() {
   return (
-    <section id="aplicacoes" className="relative border-t border-border py-28 sm:py-40">
+    <section
+      id="aplicacoes"
+      className="relative border-t border-border py-28 sm:py-40"
+    >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader
           eyebrow="Aplicações"
@@ -37,8 +40,13 @@ export function ApplicationsSection() {
             {AREAS.map((a, i) => (
               <Reveal as="li" key={a.label} delay={(i % 2) * 80}>
                 <div className="panel panel-hover flex items-center gap-4 p-5">
-                  <a.icon className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  <span className="text-sm font-medium text-foreground">{a.label}</span>
+                  <a.icon
+                    className="h-5 w-5 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span className="text-sm font-medium text-foreground">
+                    {a.label}
+                  </span>
                 </div>
               </Reveal>
             ))}
@@ -47,10 +55,35 @@ export function ApplicationsSection() {
           <Reveal delay={140}>
             <div className="panel relative overflow-hidden p-6">
               <div className="grid-bg-fine pointer-events-none absolute inset-0 opacity-50" />
-              <svg viewBox="0 0 320 320" aria-hidden="true" className="relative w-full">
-                <circle cx="160" cy="160" r="120" fill="none" stroke="var(--color-primary)" strokeOpacity="0.15" />
-                <circle cx="160" cy="160" r="80" fill="none" stroke="var(--color-primary)" strokeOpacity="0.2" />
-                <circle cx="160" cy="160" r="40" fill="none" stroke="var(--color-primary)" strokeOpacity="0.3" />
+              <svg
+                viewBox="0 0 320 320"
+                aria-hidden="true"
+                className="relative w-full"
+              >
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="120"
+                  fill="none"
+                  stroke="var(--color-primary)"
+                  strokeOpacity="0.15"
+                />
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="80"
+                  fill="none"
+                  stroke="var(--color-primary)"
+                  strokeOpacity="0.2"
+                />
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="40"
+                  fill="none"
+                  stroke="var(--color-primary)"
+                  strokeOpacity="0.3"
+                />
                 {Array.from({ length: 8 }).map((_, i) => {
                   const angle = (i / 8) * Math.PI * 2;
                   const x = 160 + Math.cos(angle) * 120;
@@ -90,7 +123,8 @@ export function ApplicationsSection() {
 
         <Reveal delay={100} className="mt-10">
           <p className="rounded-xl border border-border-strong bg-primary/5 p-7 text-center font-display text-lg font-semibold text-foreground sm:text-2xl">
-            Cada espaço possui necessidades diferentes. A tecnologia precisa se adaptar a ele.
+            Cada espaço possui necessidades diferentes. A tecnologia precisa se
+            adaptar a ele.
           </p>
         </Reveal>
       </div>
@@ -98,21 +132,35 @@ export function ApplicationsSection() {
   );
 }
 
-const PROGRESSION = ["LOCALIZAÇÃO", "MAPEAMENTO", "DADOS", "GESTÃO", "INTELIGÊNCIA"];
+const PROGRESSION = [
+  "LOCALIZAÇÃO",
+  "MAPEAMENTO",
+  "DADOS",
+  "GESTÃO",
+  "INTELIGÊNCIA",
+];
 
 export function EvolutionSection() {
   return (
     <section className="relative border-t border-border py-28 sm:py-40">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <SectionHeader eyebrow="Evolução" title="Estruturar um espaço é apenas o começo." />
+        <SectionHeader
+          eyebrow="Evolução"
+          title="Estruturar um espaço é apenas o começo."
+        />
 
         <Reveal delay={100} className="mt-12">
           <ol className="panel flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:p-8">
             {PROGRESSION.map((p, i) => (
               <li key={p} className="flex flex-1 items-center gap-3">
-                <span className="font-mono text-[11px] tracking-[0.2em] text-primary">{p}</span>
+                <span className="font-mono text-[11px] tracking-[0.2em] text-primary">
+                  {p}
+                </span>
                 {i < PROGRESSION.length - 1 ? (
-                  <span className="hairline hidden h-px flex-1 sm:block" aria-hidden="true" />
+                  <span
+                    className="hairline hidden h-px flex-1 sm:block"
+                    aria-hidden="true"
+                  />
                 ) : null}
               </li>
             ))}
@@ -125,7 +173,10 @@ export function EvolutionSection() {
               <p className="eyebrow">Hoje</p>
               <ul className="mt-5 space-y-3">
                 {["Mapas", "Localização", "Filtros", "Informações"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <li
+                    key={t}
+                    className="flex items-center gap-3 text-sm text-muted-foreground"
+                  >
                     <span className="h-1.5 w-1.5 rounded-full bg-primary-soft" />
                     {t}
                   </li>
@@ -137,8 +188,17 @@ export function EvolutionSection() {
             <div className="panel h-full border-border-strong p-7">
               <p className="eyebrow">Futuro</p>
               <ul className="mt-5 space-y-3">
-                {["Indicadores", "Gestão", "Integração", "Análise", "Novos serviços"].map((t) => (
-                  <li key={t} className="flex items-center gap-3 text-sm text-foreground">
+                {[
+                  "Indicadores",
+                  "Gestão",
+                  "Integração",
+                  "Análise",
+                  "Novos serviços",
+                ].map((t) => (
+                  <li
+                    key={t}
+                    className="flex items-center gap-3 text-sm text-foreground"
+                  >
                     <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)]" />
                     {t}
                   </li>
@@ -150,8 +210,8 @@ export function EvolutionSection() {
 
         <Reveal delay={120} className="mt-8">
           <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Quanto mais estruturadas as informações de um espaço, maiores são as possibilidades de
-            criar novas soluções.
+            Quanto mais estruturadas as informações de um espaço, maiores são as
+            possibilidades de criar novas soluções.
           </p>
         </Reveal>
       </div>
@@ -159,7 +219,13 @@ export function EvolutionSection() {
   );
 }
 
-const CHAIN = ["Realidade", "Dados", "Geotecnologia", "Software", "Experiência"];
+const CHAIN = [
+  "Realidade",
+  "Dados",
+  "Geotecnologia",
+  "Software",
+  "Experiência",
+];
 const HIGHLIGHTS = [
   "Visão sistêmica",
   "Engenharia de software",
@@ -186,7 +252,9 @@ export function DifferentiatorSection() {
                 <span className="font-mono text-[10px] tracking-[0.2em] text-primary/60">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-2 font-display text-sm font-bold text-foreground">{c}</p>
+                <p className="mt-2 font-display text-sm font-bold text-foreground">
+                  {c}
+                </p>
               </li>
             ))}
           </ol>
@@ -211,38 +279,41 @@ export function DifferentiatorSection() {
 
 const TEAM = [
   {
-    name: "Nome do integrante",
+    name: "Wyldson Marllon",
     role: "Engenharia de Software",
     stack: ["TypeScript", "NestJS", "React"],
-    text: "Descrição curta sobre a atuação do integrante dentro dos projetos da Geotech.",
+    text: "Diretor de TI e desenvolvimento Full-stack.",
     initials: "GT",
   },
   {
-    name: "Nome do integrante",
+    name: "Valmir Almeida",
     role: "Geotecnologia & GIS",
     stack: ["PostGIS", "QGIS", "GeoJSON"],
-    text: "Descrição curta sobre a atuação do integrante dentro dos projetos da Geotech.",
+    text: "Diretor de operações em Geotecnologia e desenvolvimento Back-end.",
     initials: "GT",
   },
   {
-    name: "Nome do integrante",
+    name: "Poliana Sidere",
     role: "Mobile & Experiência",
     stack: ["React Native", "MapLibre", "UI/UX"],
-    text: "Descrição curta sobre a atuação do integrante dentro dos projetos da Geotech.",
+    text: "Diretore executiva, desenvolvimento Front-end, arquitetura de software, UX/UI, estratégia de produtos digitais e negócios.",
     initials: "GT",
   },
   {
-    name: "Nome do integrante",
+    name: "Pedro Henrique",
     role: "Dados & Infraestrutura",
     stack: ["PostgreSQL", "Docker", "APIs"],
-    text: "Descrição curta sobre a atuação do integrante dentro dos projetos da Geotech.",
+    text: "* Diretor de dados, desenvolvimento Back-end, governança e administração de banco de dados.",
     initials: "GT",
   },
 ];
 
 export function TeamSection() {
   return (
-    <section id="equipe" className="relative border-t border-border py-28 sm:py-40">
+    <section
+      id="equipe"
+      className="relative border-t border-border py-28 sm:py-40"
+    >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader
           eyebrow="Equipe"
@@ -257,9 +328,13 @@ export function TeamSection() {
                 <span className="grid h-12 w-12 place-items-center rounded-full border border-border-strong bg-surface-2 font-mono text-xs tracking-widest text-primary">
                   {m.initials}
                 </span>
-                <h3 className="mt-5 font-display text-base font-bold text-foreground">{m.name}</h3>
+                <h3 className="mt-5 font-display text-base font-bold text-foreground">
+                  {m.name}
+                </h3>
                 <p className="mt-1 text-sm text-primary">{m.role}</p>
-                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{m.text}</p>
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  {m.text}
+                </p>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
                   {m.stack.map((s) => (
                     <li
